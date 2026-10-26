@@ -1,0 +1,18 @@
+name: chess_practice
+description: Spaced-repetition chess opening trainer in the style of chessreps — learn, practice, drill and time-trial real repertoire lines.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

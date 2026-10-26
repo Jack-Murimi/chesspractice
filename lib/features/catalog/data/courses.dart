@@ -1,0 +1,345 @@
+/// Hand-authored opening repertoire. Every line is verified legal by
+/// `tools/chess_validate.py`; weights are approximate real-game frequencies
+/// used to pick opponent branches. Blurbs sit on student plies only.
+library;
+
+import '../domain/course.dart';
+
+const courses = <Course>[
+  Course(
+    id: 'london',
+    title: 'London System',
+    author: 'Chess Practice',
+    emoji: '🌂',
+    side: Side.white,
+    description:
+        'The no-drama opening: Bf4 by move two, same setup against almost '
+        'everything. Learn the rock-solid structure first, collect the '
+        'tactical ideas later.',
+    lines: [
+      OpeningLine(
+        id: 'london-nf6',
+        name: 'Main line vs ...Nf6',
+        weight: 45,
+        moves: ['d4', 'd5', 'Bf4', 'Nf6', 'e3', 'e6', 'Nf3', 'c5', 'c3',
+                'Nc6', 'Nbd2', 'Bd6', 'Bg3', 'O-O', 'Bd3'],
+        blurbs: {
+          0: 'd4 grabs central space and keeps the door open for Bf4.',
+          2: 'Bf4 — the London signature. Develop before you push, every game.',
+          4: 'e3 frees the f1-bishop while keeping the pawn chain flexible.',
+          6: 'Nf3 develops toward the kingside. Castle comes next.',
+          8: 'c3 props up d4 so Black cannot blow the center open with ...c4.',
+          12: 'Bg3 retreats before ...Bxf4 can trade off your good bishop.',
+          14: 'Bd3 completes development. Castle short and you are fully booked.',
+        },
+      ),
+      OpeningLine(
+        id: 'london-e6',
+        name: 'Vs ...e6 setup',
+        weight: 20,
+        moves: ['d4', 'd5', 'Bf4', 'e6', 'e3', 'Nf6', 'Nf3', 'c5', 'c3',
+                'Nc6', 'Nbd2', 'Bd6', 'Bg3', 'O-O', 'Bd3'],
+        blurbs: {
+          2: 'Same Bf4, no matter what Black does. That is the whole sales pitch.',
+          4: 'e3 again — build the same house on every street.',
+          8: 'c3 holds the center; do not let ...c5 scare you.',
+          12: 'Bg3 keeps the bishop when Black\'s bishop arrives on d6.',
+        },
+      ),
+      OpeningLine(
+        id: 'london-c5',
+        name: 'Vs early ...c5',
+        weight: 15,
+        moves: ['d4', 'd5', 'Bf4', 'c5', 'e3', 'e6', 'c3', 'Nc6', 'Nf3',
+                'Bd6', 'Bg3', 'Nf6', 'Nbd2', 'O-O', 'Bd3'],
+        blurbs: {
+          2: 'Even against an early ...c5, the London setup is unchanged.',
+          4: 'e3 keeps everything solid. No panic, no gambit required.',
+          6: 'c3 meets ...c5 head-on and keeps your pawn on d4.',
+          10: 'Bg3 preserves the bishop pair instead of trading on d6.',
+        },
+      ),
+      OpeningLine(
+        id: 'london-bf5',
+        name: 'Vs ...Bf5',
+        weight: 12,
+        moves: ['d4', 'd5', 'Bf4', 'Bf5', 'e3', 'e6', 'Nf3', 'Nf6', 'c4',
+                'c6', 'Nc3', 'Bd6', 'Bg3', 'O-O'],
+        blurbs: {
+          4: 'e3 first; Black copying your bishop does not change the plan.',
+          8: 'c4 strikes at d5 — now it is Black who has to defend the center.',
+          10: 'Nc3 adds pressure to d5 while developing with tempo.',
+          12: 'Bg3 sidesteps the trade and keeps your bishop aiming at the kingside.',
+        },
+      ),
+      OpeningLine(
+        id: 'london-nc6',
+        name: 'Vs ...Nc6',
+        weight: 8,
+        moves: ['d4', 'd5', 'Bf4', 'Nc6', 'e3', 'Nf6', 'Nf3', 'Bf5', 'c4',
+                'e6', 'Nc3', 'Be7', 'Bd3', 'O-O'],
+        blurbs: {
+          6: 'Nf3: knights before bishops, kingside first for an easy castle.',
+          8: 'c4 challenges d5 before Black gets too comfortable.',
+          12: 'Bd3 points at h7 — the classic London attacking diagonal.',
+        },
+      ),
+    ],
+  ),
+  Course(
+    id: 'italian',
+    title: 'Italian Game',
+    author: 'Chess Practice',
+    emoji: '🎨',
+    side: Side.white,
+    description:
+        '1.e4 e5 2.Nf3 Nc6 3.Bc4: open lines, fast development and traps '
+        'galore. Covers the Giuoco Piano, the Evans Gambit and both Two '
+        'Knights replies, plus a Petroff bailout.',
+    lines: [
+      OpeningLine(
+        id: 'italian-piano',
+        name: 'Giuoco Piano, quiet main line',
+        weight: 40,
+        moves: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5', 'c3', 'Nf6', 'd3',
+                'd6', 'O-O', 'O-O', 'Nbd2', 'a6', 'Re1'],
+        blurbs: {
+          0: 'e4 opens lines for bishop and queen — the 19th-century classic.',
+          2: 'Nf3 attacks e5 and clears the way to castle.',
+          4: 'Bc4 eyes f7, the weakest square in Black\'s camp.',
+          6: 'c3 prepares d4 without committing to it yet.',
+          8: 'd3 keeps the center flexible. Slow chess, zero risk.',
+          10: 'Castle first, attack second. King safety is a feature, not a bonus.',
+          14: 'Re1 backs the e4 pawn and preps central expansion.',
+        },
+      ),
+      OpeningLine(
+        id: 'italian-evans',
+        name: 'Evans Gambit',
+        weight: 18,
+        moves: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5', 'b4', 'Bxb4', 'c3',
+                'Ba5', 'd4', 'd6', 'O-O', 'Nf6', 'Qb3', 'Qd7'],
+        blurbs: {
+          6: 'b4! A pawn for tempo — Black\'s bishop gets chased around.',
+          8: 'c3 kicks the bishop again and builds a giant center.',
+          10: 'd4 — the payoff: two pawns in the center for one sacrificed wing pawn.',
+          14: 'Qb3 piles onto f7 and b7 at once. Black is backpedaling.',
+        },
+      ),
+      OpeningLine(
+        id: 'italian-twoknights-na5',
+        name: 'Two Knights, 5...Na5',
+        weight: 22,
+        moves: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'd5', 'exd5',
+                'Na5', 'Bb5+', 'c6', 'dxc6', 'bxc6', 'Be2', 'h6', 'Nf3',
+                'e4', 'Ne5'],
+        blurbs: {
+          6: 'Ng5 jumps on f7 — the Two Knights is a knife fight, not a piano.',
+          8: 'exd5 opens the center while Black\'s knight runs at your bishop.',
+          10: 'Bb5+ check buys the tempo needed to keep the extra pawn.',
+          14: 'Be2 retreats calmly; the gambit pawn is safely banked.',
+          16: 'Nf3 dodges ...h6 and stays ready to pounce on e4.',
+          18: 'Ne5 occupies the outpost. White is better developed and centralized.',
+        },
+      ),
+      OpeningLine(
+        id: 'italian-twoknights-d4',
+        name: 'Two Knights, 4.d4',
+        weight: 12,
+        moves: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'd4', 'exd4', 'Nxd4',
+                'Bc5', 'Be3', 'd6', 'c3', 'O-O'],
+        blurbs: {
+          6: 'd4 strikes immediately — no quiet Italian today.',
+          8: 'Nxd4 recovers the pawn with a knight in the center.',
+          10: 'Be3 develops and challenges the c5-bishop.',
+          12: 'c3 solidifies and prepares Nbd2 with the center locked down.',
+        },
+      ),
+      OpeningLine(
+        id: 'italian-petroff',
+        name: 'Petroff Defense',
+        weight: 8,
+        moves: ['e4', 'e5', 'Nf3', 'Nf6', 'Nxe5', 'd6', 'Nf3', 'Nxe4', 'd4',
+                'd5', 'Bd3', 'Be7', 'O-O', 'Nc6', 'c4'],
+        blurbs: {
+          4: 'Nxe5 — grab the pawn first, worry about the pin later.',
+          6: 'Nf3 retreats from ...d6 and invites Black to overreach.',
+          8: 'd4 kicks the knight and claims the center.',
+          10: 'Bd3 develops while attacking the loose knight on e4.',
+          14: 'c4 undermines d5. The Petroff is drawish only if you let it be.',
+        },
+      ),
+    ],
+  ),
+  Course(
+    id: 'sicilian',
+    title: 'Sicilian Defense',
+    author: 'Chess Practice',
+    emoji: '🐉',
+    side: Side.black,
+    description:
+        '1.e4 c5 — the highest-scoring answer to 1.e4 in chess history. '
+        'Fight for the d4 square, trade a wing pawn for central control, '
+        'then counterpunch. Najdorf, Dragon, Old Sicilian, Kan and the '
+        'Alapin included.',
+    lines: [
+      OpeningLine(
+        id: 'sicilian-najdorf',
+        name: 'Open Sicilian, Najdorf setup',
+        weight: 35,
+        moves: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6',
+                'Nc3', 'a6', 'Bg5', 'e6', 'f4', 'Be7', 'Qf3', 'Qc7',
+                'O-O-O', 'Nbd7'],
+        blurbs: {
+          1: 'c5! The Sicilian — asymmetrical, unbalanced, winning chances.',
+          3: 'd6 keeps a flexible center and opens the c8-bishop later.',
+          5: 'cxd4 trades a wing pawn for White\'s central pawn. Classic.',
+          7: 'Nf6 develops and pressures e4.',
+          9: 'a6 is the Najdorf signature: controls b5, prepares ...b5.',
+          11: 'e6 locks down d5 and f5 before White crashes through.',
+          13: 'Be7 develops toward castling; do not grab f4 yet.',
+          15: 'Qc7 connects rooks and watches the half-open c-file.',
+          17: 'Nbd7 completes development. Opposite-side castles = race. Go.',
+        },
+      ),
+      OpeningLine(
+        id: 'sicilian-dragon',
+        name: 'Dragon Variation',
+        weight: 20,
+        moves: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6',
+                'Nc3', 'g6', 'Be3', 'Bg7', 'f3', 'O-O', 'Qd2', 'Nc6',
+                'O-O-O', 'Bd7'],
+        blurbs: {
+          9: 'g6 fianchettoes the dragon bishop, which will eye the whole board.',
+          11: 'Bg7 completes the fianchetto and pressures d4 long-term.',
+          13: 'O-O tucks the king away before the h-file storm arrives.',
+          15: 'Nc6 challenges White\'s centralized knight.',
+          17: 'Bd7 connects the rooks. The c-file is yours — use it.',
+        },
+      ),
+      OpeningLine(
+        id: 'sicilian-old',
+        name: 'Old Sicilian 2...Nc6',
+        weight: 15,
+        moves: ['e4', 'c5', 'Nf3', 'Nc6', 'd4', 'cxd4', 'Nxd4', 'Nf6',
+                'Nc3', 'e6', 'Ndb5', 'd6', 'Bf4', 'e5', 'Bg5', 'a6',
+                'Na3', 'b5'],
+        blurbs: {
+          3: 'Nc6 fights for d4 immediately, the old-school approach.',
+          7: 'Nf6 pressures e4 before White finishes developing.',
+          9: 'e6 closes the b5 knight\'s favorite square... or tries to.',
+          11: 'd6 chases the knight and solidifies the center.',
+          13: 'e5 kicks the bishop and grabs central space.',
+          15: 'a6 asks the knight a question it does not want to answer.',
+          17: 'b5 grabs queenside space. The knight on a3 is out of work.',
+        },
+      ),
+      OpeningLine(
+        id: 'sicilian-kan',
+        name: 'Kan-style 2...e6',
+        weight: 15,
+        moves: ['e4', 'c5', 'Nf3', 'e6', 'd4', 'cxd4', 'Nxd4', 'a6',
+                'Nc3', 'Qc7', 'Bd3', 'Nf6', 'O-O', 'Nc6', 'Be3', 'Be7',
+                'f4'],
+        blurbs: {
+          3: 'e6 keeps the structure flexible — Kan, Taimanov, all doors open.',
+          7: 'a6 again: deny b5, prepare ...b5, annoy the knight.',
+          9: 'Qc7 is the Kan queen: safe, central, off the c8-bishop\'s lane.',
+          13: 'Nc6 finally develops the queenside knight.',
+          15: 'Be7 readies castling. Solid first, attack second.',
+        },
+      ),
+      OpeningLine(
+        id: 'sicilian-alapin',
+        name: 'Alapin 2.c3',
+        weight: 15,
+        moves: ['e4', 'c5', 'c3', 'd5', 'exd5', 'Qxd5', 'd4', 'Nf6',
+                'Nf3', 'e6', 'Nbd2', 'Nc6', 'Bc4', 'Qd8', 'O-O', 'Be7'],
+        blurbs: {
+          3: 'd5! Meet c3 by smashing the center open immediately.',
+          5: 'Qxd5 recovers the pawn and lands the queen actively.',
+          7: 'Nf6 develops while the queen surveys from d5.',
+          9: 'e6 builds the French-style wall around her.',
+          11: 'Nc6 develops and attacks d4 — White\'s center is shaky.',
+          13: 'Qd8 retreats safely. White spent tempi, you spent them developing.',
+          15: 'Be7 and castling next. Equal structure, easy game.',
+        },
+      ),
+    ],
+  ),
+  Course(
+    id: 'carokann',
+    title: 'Caro-Kann Defense',
+    author: 'Chess Practice',
+    emoji: '🛡️',
+    side: Side.black,
+    description:
+        '1.e4 c6: solid as concrete. The c8-bishop stays alive — the '
+        'French Defense\'s headache simply never happens. Learn the '
+        'Classical, 3.Nd2, Advance and Exchange lines.',
+    lines: [
+      OpeningLine(
+        id: 'caro-classical',
+        name: 'Classical 3.Nc3 dxe4',
+        weight: 35,
+        moves: ['e4', 'c6', 'd4', 'd5', 'Nc3', 'dxe4', 'Nxe4', 'Nf6',
+                'Nxf6+', 'exf6', 'Nf3', 'Bd6', 'Bd3', 'O-O', 'O-O',
+                'Bf5'],
+        blurbs: {
+          1: 'c6 supports ...d5 — the whole identity of the Caro-Kann.',
+          3: 'd5 challenges e4 immediately. No passive defense here.',
+          5: 'dxe4 opens the position while your structure stays healthy.',
+          7: 'Nf6 kicks the knight and forces it to declare its intentions.',
+          9: 'exf6 opens the e-file for your rook and the c8-bishop\'s diagonal.',
+          11: 'Bd6 develops the f8-bishop in one move. This never happens in the French.',
+          13: 'O-O — king safe, rook to e8 next.',
+          15: 'Bf5: the famous good bishop, alive and attacking. The Caro promise.',
+        },
+      ),
+      OpeningLine(
+        id: 'caro-nd2',
+        name: '3.Nd2 line',
+        weight: 25,
+        moves: ['e4', 'c6', 'd4', 'd5', 'Nd2', 'dxe4', 'Nxe4', 'Nd7',
+                'Bc4', 'Ngf6', 'Ng5', 'e6', 'N1f3', 'Bd6', 'Qe2', 'O-O'],
+        blurbs: {
+          5: 'dxe4 again — the Nd2 knight has to spend a tempo recapturing.',
+          7: 'Nd7 develops without blocking the c8-bishop.',
+          9: 'Ngf6: the g8 knight develops; d7 stays flexible.',
+          11: 'e6 gives the g5 knight nothing to bite on.',
+          13: 'Bd6 develops and watches the kingside.',
+          15: 'O-O. White\'s knights are wandering; your king is home.',
+        },
+      ),
+      OpeningLine(
+        id: 'caro-advance',
+        name: 'Advance 3.e5',
+        weight: 22,
+        moves: ['e4', 'c6', 'd4', 'd5', 'e5', 'Bf5', 'Nf3', 'e6', 'Be2',
+                'c5', 'O-O', 'Nc6', 'c3', 'Qb6', 'Na3'],
+        blurbs: {
+          5: 'Bf5! Unlike the French, your light bishop gets out for free.',
+          7: 'e6 locks the pawn chain and prepares to break with ...c5.',
+          9: 'c5 strikes at the base of White\'s chain immediately.',
+          11: 'Nc6 adds pressure to d4 from the other side.',
+          13: 'Qb6 targets b2 and d4 — the Advance comes with real pressure.',
+        },
+      ),
+      OpeningLine(
+        id: 'caro-exchange',
+        name: 'Exchange 3.exd5',
+        weight: 18,
+        moves: ['e4', 'c6', 'd4', 'd5', 'exd5', 'cxd5', 'Bd3', 'Nc6',
+                'c3', 'Nf6', 'Bf4', 'Bf5', 'Nd2', 'e6', 'Ngf3', 'Bd6'],
+        blurbs: {
+          5: 'cxd5 recaptures toward the center — symmetrical pawns, free bishops.',
+          7: 'Nc6 develops and eyes d4.',
+          9: 'Nf6 continues smooth development.',
+          11: 'Bf5 trades or retreats on your terms; no bad bishop in this opening.',
+          13: 'e6 finishes the wall.',
+          15: 'Bd6 challenges White\'s bishop. Equal and utterly sound.',
+        },
+      ),
+    ],
+  ),
+];
